@@ -12,9 +12,30 @@ $arr=$dao->fetchAll($sql);
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+        table{
+            margin:50px auto;
+            background-color:red;
+        }
+        td{
+            width:80px;
+            height:50px;
+            border-bottom:1px solid #000;
+            text-align:center;
+        }
+        input{
+            width:80px;
+            height:30px;
+        }
+    </style>
 </head>
+
 <body>
-<table>
+<table cellspacing="0">
     <tr>
         <th>id</th>
         <th>title</th>
