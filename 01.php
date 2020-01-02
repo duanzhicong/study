@@ -31,6 +31,13 @@ $arr=$dao->fetchAll($sql);
         <td><a id="<?php echo $value['id'] ?>" href="javascript:void(0)" class="btn">删除</a></td>
     </tr>
     <?php } ?>
+    <tr>
+        <td>自动</td>
+        <td><input type="text" id='title'></td>
+        <td><input type="text" id='content'></td>
+        <td><input type="text" id='pic'></td>
+        <td><a href="javascript:void(0)" class="smt">提交</a></td>
+    </tr>
 </table>
 <script src="jquery.min.js"></script>
 <script>
@@ -47,6 +54,30 @@ $arr=$dao->fetchAll($sql);
                     window.location.reload();
                 }else{
                     alert('删除失败');
+                }
+
+            }
+        })
+    })
+    $(".smt").click(function(){
+        $title=$("#title").val();
+        $content=$("#content").val();
+        $pic=$("#pic").val();
+        $.ajax({
+            url:'01-ins.php',
+            type:'post',
+            data:{
+                title:$title,
+                content:$content,
+                pic:$pic
+                },
+            dataType:'json',
+            success:function (data) {
+                if(data.code==1){
+                    alert('增加成功');
+                    window.location.reload();
+                }else{
+                    alert('增加失败');
                 }
             }
         })
